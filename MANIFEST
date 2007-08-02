@@ -1,0 +1,14 @@
+Build.PL
+Changes
+MANIFEST
+META.yml # Will be created by "make dist"
+README
+lib/Path/Resource.pm
+lib/Path/Resource/Base.pm
+t/00-load.t
+t/01-Path-Resource.t
+t/boilerplate.t
+t/pod-coverage.t
+t/pod.t
+Makefile.PL
+

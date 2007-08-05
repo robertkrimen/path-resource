@@ -9,7 +9,7 @@ Path::Resource - URI/Path::Class combination.
 
 =head1 VERSION
 
-Version 0.041
+Version 0.042
 
 =head1 SYNOPSIS
 
@@ -35,7 +35,7 @@ Version 0.041
 
 =cut
 
-our $VERSION = '0.041';
+our $VERSION = '0.042';
 
 use Path::Class();
 use Path::Resource::Base();

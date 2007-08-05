@@ -1,3 +1,6 @@
+0.041 Saturday August 04 19:59:45 PDT 2007 
+ - Minor change to Build.PL: Test::Lazy requirement
+
 0.04 Monday July 30 11:29:31 PDT 2007:
  - Only prepend path in file/dir/loc if it is non-empty
 

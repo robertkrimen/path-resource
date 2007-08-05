@@ -6,9 +6,10 @@ WriteMakefile
           'VERSION_FROM' => 'lib/Path/Resource.pm',
           'PREREQ_PM' => {
                            'Class::Accessor' => '0',
+                           'Path::Abstract' => '0',
                            'Path::Class' => '0',
-                           'Path::Lite' => '0',
                            'Scalar::Util' => '0',
+                           'Test::Lazy' => '0',
                            'Test::More' => '0',
                            'URI' => '0'
                          },

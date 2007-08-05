@@ -1,6 +1,6 @@
 ---
 name: Path-Resource
-version: 0.03
+version: 0.041
 author:
   - 'Robert Krimen <robertkrimen@gmail.com>'
 abstract: URI/Path::Class combination.
@@ -9,16 +9,17 @@ resources:
   license: http://dev.perl.org/licenses/
 requires:
   Class::Accessor: 0
+  Path::Abstract: 0
   Path::Class: 0
-  Path::Lite: 0
   Scalar::Util: 0
   URI: 0
 build_requires:
+  Test::Lazy: 0
   Test::More: 0
 provides:
   Path::Resource:
     file: lib/Path/Resource.pm
-    version: 0.03
+    version: 0.041
   Path::Resource::Base:
     file: lib/Path/Resource/Base.pm
 generated_by: Module::Build version 0.2808

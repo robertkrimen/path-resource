@@ -12,7 +12,3 @@ Build: Build.PL
 	perl $<
 
 clean: distclean
-
-time:
-#	perl -mlib=$(DVL_HOME)/lib -T -d:DProf t/01-PL-new-set.t 
-

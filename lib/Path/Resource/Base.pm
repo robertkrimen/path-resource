@@ -11,11 +11,11 @@ Path::Resource::Base - A resource base for a Path::Resource object
 
 use Path::Abstract;
 use Path::Class();
-use Scalar::Util qw(blessed);
+use Scalar::Util qw/blessed/;
 use URI;
 
-use base qw/Class::Accessor/;
-__PACKAGE__->mk_accessors(qw(dir loc uri));
+use base qw/Class::Accessor::Fast/;
+__PACKAGE__->mk_accessors(qw/dir loc uri/);
 
 =over 4
 

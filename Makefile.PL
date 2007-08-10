@@ -5,7 +5,7 @@ WriteMakefile
           'NAME' => 'Path::Resource',
           'VERSION_FROM' => 'lib/Path/Resource.pm',
           'PREREQ_PM' => {
-                           'Class::Accessor' => '0',
+                           'Class::Accessor::Fast' => '0',
                            'JSON::XS' => '0',
                            'Path::Abstract' => '0',
                            'Path::Class' => '0',

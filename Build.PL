@@ -18,7 +18,7 @@ my $builder = Module::Build->new(
     	'Path::Abstract' => 0,
     	'Scalar::Util' => 0,
     	'URI' => 0,
-    	'Class::Accessor' => 0,
+    	'Class::Accessor::Fast' => 0,
     },
     add_to_cleanup      => [ 'Path-Resource-*' ],
     create_makefile_pl => "traditional",

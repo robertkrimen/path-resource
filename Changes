@@ -1,3 +1,12 @@
+TODO:
+ - More documentation for Path::Resource::Base
+ - $rsc->location as an alias for $rsc->loc
+
+0.05 Thursday August 09 18:39:47 PDT 2007:
+ - $rsc->path will not return a path clone instead of the original
+ - More documentation
+ - Change to using Class::Accessor::Fast
+
 0.042 Sunday August 05 11:39:28 PDT 2007:
 
 0.041 Saturday August 04 19:59:45 PDT 2007 

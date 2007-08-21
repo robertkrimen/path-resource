@@ -2,6 +2,11 @@ TODO:
  - More documentation for Path::Resource::Base
  - $rsc->location as an alias for $rsc->loc
 
+0.06 Tuesday August 21 00:17:48 PDT 2007:
+ - More documentation
+ - Cleaned up some Path::Resource::Base processing
+ - $rsc->base->uri should now return the original uri passed in
+
 0.05 Thursday August 09 18:39:47 PDT 2007:
  - $rsc->path will not return a path clone instead of the original
  - More documentation

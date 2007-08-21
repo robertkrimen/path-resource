@@ -30,17 +30,24 @@ sub new {
 	my $dir = $_{dir};
 	$dir = Path::Class::dir($dir) unless blessed $dir && $dir->isa("Path::Class::Dir");
 
+    # Extract $uri->path from $uri in order to combine with $loc later
 	my $uri = $_{uri};
 	$uri = URI->new($uri) unless blessed $uri && $uri->isa("URI");
 	my $uri_path = $uri->path;
-	$uri_path = "/" unless length $uri_path;
-	$uri->path('');
+
+    # If $loc is relative or ($loc is not defined && $uri_path is empty),
+    # this will give us a proper $loc below in any event
+    $uri_path = "/" unless length $uri_path;
+
+#   # Set $uri->path to empty, since we'll be using $loc
+#   $uri->path('');
 
 	my $loc;
 	if (defined $_{loc}) {
 		$loc = $_{loc};
 		$loc = Path::Abstract->new($loc) unless blessed $loc && $loc->isa("Path::Abstract");
-		if ($uri_path && $loc->is_branch) {
+		if ($loc->is_branch) {
+            # Combine $loc and $uri_path if $loc is relative
 			$loc = Path::Abstract->new($uri_path, $loc->path);
 		}
 	}

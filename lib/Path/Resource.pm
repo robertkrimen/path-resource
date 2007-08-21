@@ -9,7 +9,7 @@ Path::Resource - URI/Path::Class combination.
 
 =head1 VERSION
 
-Version 0.05
+Version 0.06
 
 =head1 SYNOPSIS
 
@@ -35,7 +35,7 @@ Version 0.05
 
 =cut
 
-our $VERSION = '0.05';
+our $VERSION = '0.06';
 
 use Path::Class();
 use Path::Resource::Base();
@@ -48,6 +48,10 @@ __PACKAGE__->mk_accessors(qw(_path base));
 =over 4
 
 =item Path::Resource->new
+
+=item Path::Resource->new( [ base => $base, dir => $dir, file => $file, path => $path, loc => $loc, uri => $uri ] );
+
+Create and return a new Path::Resource object
 
 =cut
 
@@ -62,12 +66,16 @@ sub new {
 
 	my $base;
 	if ($base = $_{base}) {
+        # Use supplied base object
+        croak "\$base ($base) is not of Path::Resource::Base" unless $base->isa("Path::Resource::Base");
 	}
 	else {
+        # Make a new base object from @_
 		if ($dir && $file && $path) {
 			croak "Can't initialize a dir ($dir), a file ($file), and a path ($path) at the same time"
 		}
 		elsif ($dir && $file) {
+            # We were given a dir and file, so keep the dir and determine the path by finding difference between the two.
 			$dir = Path::Class::dir($dir) unless blessed $dir && $dir->isa("Path::Class::Dir");
 			$file = Path::Class::file($file) unless blessed $file && $file->isa("Path::Class::File");
 			croak "Can't initialize since dir ($dir) does not contain file ($file) unless $dir->subsumes($file)";

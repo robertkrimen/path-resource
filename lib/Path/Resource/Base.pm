@@ -19,7 +19,7 @@ __PACKAGE__->mk_accessors(qw/dir loc uri/);
 
 =over 4
 
-=item Path::Resource::Base->new
+=item $base = Path::Resource::Base->new( dir => $dir, uri => $uri, loc => $loc )
 
 =cut
 

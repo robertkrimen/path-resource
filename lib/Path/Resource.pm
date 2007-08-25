@@ -32,6 +32,17 @@ Version 0.06
   my $size = -s $banana_txt_rsc->file;
 
   redirect($banana_txt_rsc->uri);
+  # Redirect to "http://hostname/loc/apple/banana.txt"
+
+=head1 DESCRIPTION
+
+Path::Resource is a module for combining local file and directory manipulation with URI manipulation. It allows you to
+effortlessly map local file locations to their URI equivalent.
+
+Given a base Path::Resource, you can descend (using ->child) or ascend (using ->parent) the path tree while maintaining
+URI equivalency, all in one object. 
+
+As a convenience, if you do not need the full URI, you can use the ->loc method to just return the URI path.
 
 =cut
 
@@ -47,11 +58,56 @@ __PACKAGE__->mk_accessors(qw(_path base));
 
 =over 4
 
-=item Path::Resource->new
+=item $rsc = Path::Resource->new
 
-=item Path::Resource->new( [ base => $base, dir => $dir, file => $file, path => $path, loc => $loc, uri => $uri ] );
+=item $rsc = Path::Resource->new( dir => $dir, uri => $uri, [ path => $path ] )
 
-Create and return a new Path::Resource object
+Create and return a new Path::Resource object using $dir as the base dir and $uri as the base uri.
+
+The URI path of $uri will be automatically extracted and used as the base loc.
+
+If $path is given, then the $rsc will start at that point on the path.
+
+    # For example, if the following $rsc is created like so:
+    my $rsc = Path::Resource->new(uri => "http://example.com/a", dir => "/home/b/htdocs", path => "xyzzy");
+
+    my $dir = $rsc->dir; # The dir "/home/b/htdocs/xyzzy"
+    my $uri = $rsc->uri; # The uri "http://example.com/a/xyzzy"
+
+    # Note that path doesn't have to be a dir.
+    # You can give it a file path if you like (Path::Resource doesn't care)
+    $rsc = Path::Resource->new(uri => "http://example.com/a", dir => "/home/b/htdocs", path => "xyzzy/nothing.txt");
+
+    my $file = $rsc->file; # The file "/home/b/htdocs/xyzzy/nothing.txt"
+    $uri = $rsc->uri; # The uri "http://example.com/a/xyzzy/nothing.txt"
+
+=item $rsc = Path::Resource->new( dir => $dir, uri => $uri, loc => $loc, [ path => $path ] )
+
+Create and return a new Path::Resource object using $dir as the base dir, $uri as the base uri, and
+using $loc as the base loc (the uri path).
+
+If $loc is relative, then it will be appended to $uri->path, otherwise (being absolute) it will replace $uri->path.
+
+If $path is given, then the $rsc will start at that point on the path.
+
+    # For example, if the following $rsc is created like so:
+    my $rsc = Path::Resource->new(uri => "http://example.com/a", dir => "/home/b/htdocs", loc => "c");
+
+    my $dir = $rsc->dir; # The dir "/home/b/htdocs"
+    my $uri = $rsc->uri; # The uri "http://example.com/a/c"
+
+    # On the other hand:
+    $rsc = Path::Resource->new(uri => "http://example.com/a", dir => "/home/b/htdocs", loc => "/g/h");
+
+    $dir = $rsc->dir; # The dir "/home/b/htdocs"
+    $uri = $rsc->uri; # The uri "http://example.com/g/h
+
+=item $rsc = Path::Resource->new( file => $file, dir => $dir, uri => $uri, [ loc => $loc, path => $path ] )
+
+Create and return a new Path::Resource object using $dir as the base dir, $uri as the base uri, and
+the difference between $file and $dir as the path (literally: $path = $file->relative($dir))
+
+If $loc is given then if it is relative, then it will be appended to $uri->path, otherwise (being absolute) it will replace $uri->path.
 
 =cut
 

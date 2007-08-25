@@ -1,6 +1,6 @@
 ---
 name: Path-Resource
-version: 0.05
+version: 0.06
 author:
   - 'Robert Krimen <robertkrimen@gmail.com>'
 abstract: URI/Path::Class combination.
@@ -21,7 +21,7 @@ build_requires:
 provides:
   Path::Resource:
     file: lib/Path/Resource.pm
-    version: 0.05
+    version: 0.06
   Path::Resource::Base:
     file: lib/Path/Resource/Base.pm
 generated_by: Module::Build version 0.2806

@@ -11,4 +11,4 @@ t/boilerplate.t
 t/pod-coverage.t
 t/pod.t
 Makefile.PL
-
+t/02-examples.t

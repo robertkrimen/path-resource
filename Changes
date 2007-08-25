@@ -1,6 +1,12 @@
 TODO:
+ - Grab some tests from URI::ToDisk ? 
+ - $rsc->location as an alias for $rsc->loc ?
+
+0.06 Saturday August 25 15:58:44 PDT 2007
+ - Make sure ->base->loc, ->base->dir, and ->base->uri are in the right format when changing
+ - More documentation: Description and rationale in Path/Resource.pm
  - More documentation for Path::Resource::Base
- - $rsc->location as an alias for $rsc->loc
+ - This is comprehensive release, as all major functionality is documented with examples.
 
 0.06 Tuesday August 21 00:17:48 PDT 2007:
  - More documentation

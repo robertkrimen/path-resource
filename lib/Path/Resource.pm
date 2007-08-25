@@ -39,6 +39,8 @@ Version 0.06
 Path::Resource is a module for combining local file and directory manipulation with URI manipulation. It allows you to
 effortlessly map local file locations to their URI equivalent.
 
+It combines Path::Class and URI into one object.
+
 Given a base Path::Resource, you can descend (using ->child) or ascend (using ->parent) the path tree while maintaining
 URI equivalency, all in one object. 
 
@@ -55,6 +57,8 @@ use Scalar::Util qw/blessed/;
 use Carp;
 use base qw/Class::Accessor::Fast/;
 __PACKAGE__->mk_accessors(qw(_path base));
+
+=head1 METHODS 
 
 =over 4
 
@@ -195,6 +199,8 @@ sub clone {
 	return __PACKAGE__->new(base => $self->base->clone, path => $path);
 }
 
+=item $rsc->subdir( <part>, [ <part>, ..., <part> ] )
+
 =item $rsc->child( <part>, [ <part>, ..., <part> ] )
 
 Return a clone Path::Resource object whose path is the child of $rsc->path
@@ -204,6 +210,9 @@ Return a clone Path::Resource object whose path is the child of $rsc->path
     # $rsc->path is "b/c/d.tmp"
     $rsc = $rsc->child("c/d.tmp");
 
+    # ->subdir is an alias for ->child
+    $rsc = $rsc->parent->subdir("e");
+
 =cut
 
 sub child {
@@ -211,6 +220,7 @@ sub child {
 	my $clone = $self->clone($self->_path->child(@_));
 	return $clone;
 }
+*subdir = \&child;
 
 =item $rsc->parent
 
@@ -290,6 +300,8 @@ sub uri {
 
 Return a Path::Class::File object based on $rsc->base->dir, $rsc->path, and any optional <part> passed through
 
+NOTE: This method will return a Path::Class::File object, *NOT* a new Path::Resource object (use ->child for that functionality)
+
     my $rsc = Path::Resource->new(dir => "/a", path => "b");
     $rsc = $rsc->child("c/d.tmp");
 
@@ -340,6 +352,10 @@ Return the Path::Resource::Base object for $rsc
 =head1 AUTHOR
 
 Robert Krimen, C<< <rkrimen at cpan.org> >>
+
+=head1 SEE ALSO
+
+URI::ToDisk
 
 =head1 BUGS
 

@@ -1,3 +1,7 @@
+require "Makefile.PL";
+
+__END__
+
 use strict;
 use warnings;
 use Module::Build;

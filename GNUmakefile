@@ -1,14 +1,15 @@
-.PHONY: all test time clean distclean dist build distcheck
+.PHONY: all test time clean distclean dist distcheck upload distupload
 
 all: test
 
-build: Build
-	./$<
+dist distclean test tardist: Makefile
+	make -f $< $@
 
-distcheck dist distclean test tardist: Build
-	./Build $@
-
-Build: Build.PL
+Makefile: Makefile.PL
 	perl $<
 
 clean: distclean
+
+reset: clean
+	perl Makefile.PL
+	make -f Makefile test

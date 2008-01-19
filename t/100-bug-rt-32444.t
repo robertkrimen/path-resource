@@ -3,11 +3,9 @@
 use Test::More;
 
 BEGIN {
-    if ($ENV{TEST_WIN32}) {
-        eval "require File::Spec::Win32;" or plan skip_all => "Can't load File::Spec::Win32";
-        use File::Spec;
-        @File::Spec::ISA = qw/File::Spec::Win32/;
-    }
+    eval "require File::Spec::Win32;" or plan skip_all => "Can't load File::Spec::Win32";
+    use File::Spec;
+    @File::Spec::ISA = qw/File::Spec::Win32/;
 }
 
 plan qw/no_plan/;

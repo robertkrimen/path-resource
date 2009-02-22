@@ -9,7 +9,7 @@ Path::Resource - URI/Path::Class combination.
 
 =head1 VERSION
 
-Version 0.070
+Version 0.071
 
 =head1 SYNOPSIS
 
@@ -48,7 +48,7 @@ As a convenience, if you do not need the full URI, you can use the ->loc method 
 
 =cut
 
-our $VERSION = '0.070';
+our $VERSION = '0.071';
 
 use Path::Class();
 use Path::Resource::Base();

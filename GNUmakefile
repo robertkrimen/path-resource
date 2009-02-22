@@ -1,12 +1,17 @@
-.PHONY: all test time clean distclean dist distcheck upload distupload
+.PHONY: all test clean distclean dist
 
 all: test
 
-dist distclean test tardist: Makefile
-	make -f $< $@
+dist:
+	rm -rf inc META.y*ml
+	perl Makefile.PL
+	$(MAKE) -f Makefile dist
+
+install distclean tardist: Makefile
+	$(MAKE) -f $< $@
 
 test: Makefile
-	make -f $< $@
+	TEST_RELEASE=1 $(MAKE) -f $< $@
 	TEST_WIN32=1 make -f $< $@
 
 Makefile: Makefile.PL
@@ -16,4 +21,4 @@ clean: distclean
 
 reset: clean
 	perl Makefile.PL
-	make -f Makefile test
+	$(MAKE) test

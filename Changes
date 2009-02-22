@@ -3,6 +3,10 @@ TODO:
  - $rsc->location as an alias for $rsc->loc ?
  - $rsc->abstract to return a Path::Abstract object based on $dir, $path ?
 
+0.071 Saturday February 21 21:12:11 PST 2009:
+ - Conversion to github
+ - Modified use of Path::Abstract to disable warning
+
 0.070 Saturday January 19 10:39:12 PST 2008:
  - Changed build process over to Module::Install
  - Fixed failing tests on Win32 (rep. RENEEB)

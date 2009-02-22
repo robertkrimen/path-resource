@@ -9,7 +9,7 @@ Path::Resource::Base - A resource base for a Path::Resource object
 
 =cut
 
-use Path::Abstract;
+use Path::Abstract qw/--no_0_093_warning/;
 use Path::Class();
 use Scalar::Util qw/blessed/;
 use URI;

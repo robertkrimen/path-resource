@@ -1,28 +1,27 @@
 ---
-name: Path-Resource
-version: 0.070
+abstract: 'URI/Path::Class combination.'
 author:
   - 'Robert Krimen <rkrimen@cpan.org>'
-abstract: URI/Path::Class combination.
+build_requires:
+  Test::Lazy: 0.03
+  Test::Most: 0
+distribution_type: module
+generated_by: 'Module::Install version 0.79'
 license: perl
-resources:
-  license: http://dev.perl.org/licenses/
+meta-spec:
+  url: http://module-build.sourceforge.net/META-spec-v1.4.html
+  version: 1.4
+name: Path-Resource
+no_index:
+  directory:
+    - inc
+    - t
 requires:
   Class::Accessor::Fast: 0
   Path::Abstract: 0
   Path::Class: 0
   Scalar::Util: 0
-  URI: 0
-build_requires:
-  Test::Lazy: 0.03
-  Test::More: 0
-provides:
-  Path::Resource:
-    file: lib/Path/Resource.pm
-    version: 0.070
-  Path::Resource::Base:
-    file: lib/Path/Resource/Base.pm
-generated_by: Module::Build version 0.2808
-meta-spec:
-  url: http://module-build.sourceforge.net/META-spec-v1.2.html
-  version: 1.2
+resources:
+  license: http://dev.perl.org/licenses/
+  repository: http://github.com/robertkrimen/path-resource/tree/master
+version: 0.071

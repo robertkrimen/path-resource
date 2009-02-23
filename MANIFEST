@@ -1,4 +1,3 @@
-Build.PL
 Makefile.PL
 Changes
 MANIFEST
@@ -21,7 +20,6 @@ t/00-load.t
 t/01-Path-Resource.t
 t/02-examples.t
 t/100-bug-rt-32444.t
-t/author/boilerplate.t
-t/author/pod-coverage.t
-t/author/pod.t
-
+t/release/boilerplate.t
+t/release/pod-coverage.t
+t/release/pod.t

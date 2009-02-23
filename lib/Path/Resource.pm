@@ -5,11 +5,11 @@ use strict;
 
 =head1 NAME
 
-Path::Resource - URI/Path::Class combination.
+Path::Resource - URI/Path::Class combination
 
 =head1 VERSION
 
-Version 0.071
+Version 0.072
 
 =head1 SYNOPSIS
 
@@ -48,7 +48,7 @@ As a convenience, if you do not need the full URI, you can use the ->loc method 
 
 =cut
 
-our $VERSION = '0.071';
+our $VERSION = '0.072';
 
 use Path::Class();
 use Path::Resource::Base();

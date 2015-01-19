@@ -28,10 +28,13 @@ SYNOPSIS
 
 DESCRIPTION
     Path::Resource is a module for combining local file and directory
-    manipulation with URI manipulation. It allows you to effortlessly map
-    local file locations to their URI equivalent.
+    manipulation with URI manipulation in a cross platform manner.
+    It allows you to effortlessly map local file locations to their 
+    URI equivalent.
 
-    It combines Path::Class and URI into one object.
+    It combines Path::Class and URI into one object.The underlying 
+    Path::Class module provides support across Unix, Windows, Mac, 
+    VMS, Epoc, Cygwin, OS/2, and NetWare.
 
     Given a base Path::Resource, you can descend (using ->child) or ascend
     (using ->parent) the path tree while maintaining URI equivalency, all in

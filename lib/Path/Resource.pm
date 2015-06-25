@@ -393,8 +393,6 @@ L<http://search.cpan.org/dist/Path-Resource>
 
 =back
 
-=head1 ACKNOWLEDGEMENTS
-
 =head1 COPYRIGHT & LICENSE
 
 Copyright 2007 Robert Krimen, all rights reserved.

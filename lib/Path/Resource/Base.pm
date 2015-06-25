@@ -126,6 +126,8 @@ $dir is a Path::Class::Dir object, but if you pass in a valid Path::Class::Dir s
 
 =cut
 
+=back
+
 sub dir {
     my $self = shift;
     return $self->_dir unless @_;

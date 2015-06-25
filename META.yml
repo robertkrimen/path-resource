@@ -1,12 +1,16 @@
 ---
-abstract: 'URI/Path::Class combination.'
+abstract: 'URI/Path::Class combination'
 author:
   - 'Robert Krimen <rkrimen@cpan.org>'
 build_requires:
-  Test::Lazy: 0.03
+  ExtUtils::MakeMaker: 6.36
+  Test::Lazy: '0.03'
   Test::Most: 0
+configure_requires:
+  ExtUtils::MakeMaker: 6.36
 distribution_type: module
-generated_by: 'Module::Install version 0.79'
+dynamic_config: 1
+generated_by: 'Module::Install version 1.16'
 license: perl
 meta-spec:
   url: http://module-build.sourceforge.net/META-spec-v1.4.html
@@ -24,4 +28,4 @@ requires:
 resources:
   license: http://dev.perl.org/licenses/
   repository: http://github.com/robertkrimen/path-resource/tree/master
-version: 0.071
+version: '0.072'
